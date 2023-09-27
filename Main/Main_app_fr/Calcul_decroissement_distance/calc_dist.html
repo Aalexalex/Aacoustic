@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculateur de Décroissement du Bruit</title>
+    <link rel="icon" href="icon.ico" type="image/x-icon">  <!-- Favicon -->
+    <meta charset="UTF-8">
+    <script type="text/javascript" id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Calcul du décroissement par la distance</h1>
+        <div class="formula">
+            <p>Formule utilisée :</p>
+            <p><span class="math-tex">\( L_2 = L_1 + 10 \log_{10} \left( \frac{4 \pi r_1^2}{Q \times 4 \pi r_2^2} \right) \)</span></p>
+        </div>
+        <div class="calculator">
+            <input type="number" id="initialNoiseLevel" placeholder="Niveau de bruit initial (L1)">
+            <input type="number" id="initialDistance" placeholder="Distance initiale (r1)">
+            <input type="number" id="directivityFactor" placeholder="Facteur directivité (Q)">
+            <input type="number" id="newDistance" placeholder="Nouvelle distance (r2)">
+            <button id="calculateBtn">Calculer</button>
+            <div id="result">Résultat : </div>
+            <div id="history">Historique : <br>--------<br></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

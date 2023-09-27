@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Acoustic Tools</title>
+    <link rel="icon" href="icon.ico" type="image/x-icon">  <!-- Favicon -->
+    <link rel="stylesheet" type="text/css" href="main.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Acoustic Tools
+            <div class="flag-container">
+                <img class="flag" src="logo_fr.png" alt="French" title="Français" onclick="changeLanguage('fr')">
+                <img class="flag" src="logo_en.png" alt="English" title="English" onclick="changeLanguage('en')">
+            </div>
+        </h1>
+        <div class="app-grid">
+            <div class="app-card" id="db-calculator">
+                <h2>Addition and Subtraction of dB Levels</h2>
+                <img src="Calculs_db_web/logo_calc_db.png" alt="DB Calculator Image" width="150" height="70">
+            </div>
+            <div class="app-card" id="distance-decay">
+                <h2>Distance Decay Calculation</h2>
+                <img src="Calcul_decroissement_distance/logo_calc_dist.png" alt="DB Calculator Image" width="110" height="40" style="margin-top: 27px;">
+            </div>
+            <div class="app-card" id="lptiers-lpoct">
+                <h2>Conversion from Third-Octave Lp to Octave Lp</h2>
+                <img src="Calcul_tiers_en_bande/logo_calc_tiers_en_bande.PNG" alt="DB Calculator Image" width="180" height="32" style="margin-top: 22px;">
+            </div>
+            <!-- Ajoutez plus de cartes ici pour d'autres applications -->
+        </div>
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>
