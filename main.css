@@ -1,0 +1,47 @@
+.container {
+    width: 80%;
+    margin: auto;
+}
+
+.app-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr); /* 6 colonnes */
+    gap: 15px;
+}
+
+.app-card {
+    background-color: #f2f2f2;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    cursor: pointer;
+    height: 150px;
+    border: 2px solid black;  /* Contour */
+}
+
+.app-card:hover {
+    background-color: #e6e6e6;  /* Couleur de fond lors du survol */
+    border: 3px solid #333;  /* Contour lors du survol */
+}
+
+.app-card h2 {
+    font-size: 16px;
+}
+
+.flag-container {
+    display: inline-flex;
+    margin-left: 15px;
+    vertical-align: top;
+}
+
+.flag {
+    width: 25px;
+    height: auto;
+    margin-left: 5px;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+}
+
+.flag:hover {
+    transform: scale(1.1);
+}
