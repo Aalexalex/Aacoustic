@@ -130,14 +130,9 @@ tableContent += headerRow + '</tr>';
 
         newRow += '</tr>';
         table.insertAdjacentHTML('beforeend', newRow);  // Insérez la nouvelle ligne d'abord
-        let newRowElement = table.lastElementChild;  // Accédez à la dernière ligne insérée
-        
-        // Ensuite, définissez la largeur de la première cellule
-        if (firstCellWidth > 0) {
-            newRowElement.firstElementChild.style.width = `${firstCellWidth}px`;
-        } else {
-            newRowElement.firstElementChild.style.width = "valeur_par_défaut"; // Remplacez par la valeur que vous souhaitez
-        }
+
+        // Supprimé: ajustement de la largeur de la première cellule basé sur
+        // une variable inexistante "firstCellWidth" qui provoquait une erreur.
         
         console.log("About to update resultsTable");
 
