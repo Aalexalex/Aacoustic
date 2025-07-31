@@ -55,7 +55,7 @@ tableContent += headerRow + '</tr>';
         if (count % 3 === 0) {  // Ajout d'une bordure à gauche toutes les trois cellules
             cellStyle += ' style="border-left: 2px solid black;"';
         }
-        inputRow += `<td${cellStyle}><input type="text" id="third_${third}"></td>`;
+        inputRow += `<td${cellStyle}><input type="number" step="any" min="0" aria-label="Bande ${third} Hz" id="third_${third}"></td>`;
         count++;
     });
     tableContent += inputRow + '</tr>';

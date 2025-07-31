@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", function() {
         if (count % 3 === 0) { // Add left border every three cells
             cellStyle += ' style="border-left: 2px solid black;"';
         }
-        inputRow += `<td${cellStyle}><input type="text" id="third_${third}"></td>`;
+        inputRow += `<td${cellStyle}><input type="number" step="any" min="0" aria-label="Band ${third} Hz" id="third_${third}"></td>`;
         count++;
     });
     tableContent += inputRow + '</tr>';

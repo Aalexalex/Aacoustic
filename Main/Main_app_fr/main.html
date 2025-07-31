@@ -17,18 +17,20 @@
     <meta charset="UTF-8">
     <title>Outils Acoustiques</title>
     <link rel="icon" href="icon.ico" type="image/x-icon">  <!-- Favicon -->
+    <link rel="stylesheet" href="/Aacoustic/assets/css/global.css">
     <link rel="stylesheet" type="text/css" href="main.css">
     <link rel="alternate" hreflang="fr" href="https://aalexalex.github.io/Aacoustic/Main/Main_app_fr/main.html">
     <link rel="alternate" hreflang="en" href="https://aalexalex.github.io/Aacoustic/Main/Main_app_en/main.html">
 </head>
 <body>
-    <div class="container">
-        <h1>Outils Acoustiques
-            <div class="flag-container">
-                <img class="flag" src="logo_fr.png" alt="French" title="Français" onclick="changeLanguage('fr')">
-                <img class="flag" src="logo_en.png" alt="English" title="English" onclick="changeLanguage('en')">
-            </div>
-        </h1>
+    <header class="site-header">
+        <h1>Aacoustic</h1>
+        <div class="flag-container">
+            <img class="flag" src="logo_fr.png" alt="Français" title="Français" onclick="changeLanguage('fr')">
+            <img class="flag" src="logo_en.png" alt="English" title="English" onclick="changeLanguage('en')">
+        </div>
+    </header>
+    <div id="home" class="container">
         <div class="app-grid">
             <div class="app-card" id="db-calculator">
                 <h2>Addition et soustraction des niveaux en dB</h2>
@@ -45,6 +47,13 @@
             <!-- Ajoutez plus de cartes ici pour d'autres applications -->
         </div>
     </div>
+    <div id="tool-container" class="container" style="display:none;">
+        <button id="backBtn">&larr; Retour</button>
+        <iframe id="toolFrame" src="" style="width:100%;height:600px;border:none;"></iframe>
+    </div>
+    <footer class="site-footer">
+        <p>&copy; 2024 Aacoustic - <a href="https://github.com/AalexAlex/Aacoustic">GitHub</a></p>
+    </footer>
     <script src="main.js"></script>
 </body>
 </html>
