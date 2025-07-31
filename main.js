@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     lptierslpoct.addEventListener("click", function() {
-        window.open("Calcul_tiers_en_bande/tiers_en _bande.html", "_blank");
+        window.open("Calcul_tiers_en_bande/tiers_en_bande.html", "_blank");
     });
         
 
