@@ -21,6 +21,7 @@
     <script type="text/javascript" id="MathJax-script" async
         src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
     </script>
+    <link rel="stylesheet" href="../../assets/css/global.css">
     <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
@@ -31,10 +32,18 @@
             <p><span class="math-tex">\( L_2 = L_1 + 10 \log_{10} \left( \frac{4 \pi r_1^2}{Q \times 4 \pi r_2^2} \right) \)</span></p>
         </div>
         <div class="calculator">
-            <input type="number" id="initialNoiseLevel" placeholder="Niveau de bruit initial (L1)">
-            <input type="number" id="initialDistance" placeholder="Distance initiale (r1)">
-            <input type="number" id="directivityFactor" placeholder="Facteur directivité (Q)">
-            <input type="number" id="newDistance" placeholder="Nouvelle distance (r2)">
+            <label for="initialNoiseLevel">Niveau de bruit initial (L1)</label>
+            <input type="number" id="initialNoiseLevel" step="any" placeholder="0" min="0">
+            <div class="error" id="err1"></div>
+            <label for="initialDistance">Distance initiale (r1)</label>
+            <input type="number" id="initialDistance" step="any" placeholder="0" min="0">
+            <div class="error" id="err2"></div>
+            <label for="directivityFactor">Facteur directivité (Q)</label>
+            <input type="number" id="directivityFactor" step="any" placeholder="0" min="0">
+            <div class="error" id="err3"></div>
+            <label for="newDistance">Nouvelle distance (r2)</label>
+            <input type="number" id="newDistance" step="any" placeholder="0" min="0">
+            <div class="error" id="err4"></div>
             <button id="calculateBtn">Calculer</button>
             <div id="result">Résultat : </div>
             <div id="history">Historique : <br>--------<br></div>

@@ -17,34 +17,40 @@
     <meta charset="UTF-8">
     <title>Outils Acoustiques</title>
     <link rel="icon" href="icon.ico" type="image/x-icon">  <!-- Favicon -->
-    <link rel="stylesheet" type="text/css" href="main.css">
+    <link rel="stylesheet" href="../../assets/css/global.css">
     <link rel="alternate" hreflang="fr" href="https://aalexalex.github.io/Aacoustic/Main/Main_app_fr/main.html">
     <link rel="alternate" hreflang="en" href="https://aalexalex.github.io/Aacoustic/Main/Main_app_en/main.html">
 </head>
 <body>
-    <div class="container">
-        <h1>Outils Acoustiques
-            <div class="flag-container">
-                <img class="flag" src="logo_fr.png" alt="French" title="Français" onclick="changeLanguage('fr')">
-                <img class="flag" src="logo_en.png" alt="English" title="English" onclick="changeLanguage('en')">
-            </div>
-        </h1>
-        <div class="app-grid">
-            <div class="app-card" id="db-calculator">
-                <h2>Addition et soustraction des niveaux en dB</h2>
-                <img src="Calculs_db_web/logo_calc_db.png" alt="DB Calculator Image" width="150" height="70">
-            </div>
-            <div class="app-card" id="distance-decay">
-                <h2>Calcul du décroissement par la distance</h2>
-                <img src="Calcul_decroissement_distance/logo_calc_dist.png" alt="DB Calculator Image" width="110" height="40" style="margin-top: 15px;">
-            </div>
-            <div class="app-card" id="lptiers-lpoct">
-                <h2>Conversion Lp tiers d'octave vers Lp octave</h2>
-                <img src="Calcul_tiers_en_bande/logo_calc_tiers_en_bande.png" alt="DB Calculator Image" width="180" height="32" style="margin-top: 22px;">
-            </div>
-            <!-- Ajoutez plus de cartes ici pour d'autres applications -->
-        </div>
+<header>
+  <h1>Aacoustic</h1>
+  <div class="lang-switch">
+    <img src="logo_fr.png" alt="Français" title="Français" onclick="changeLanguage('fr')">
+    <img src="logo_en.png" alt="English" title="English" onclick="changeLanguage('en')">
+  </div>
+</header>
+<main>
+  <section id="home-section">
+    <div class="app-grid">
+      <div class="app-card" data-src="Calculs_db_web/calc_db.html">
+        <h2>Addition et soustraction des niveaux en dB</h2>
+        <img src="Calculs_db_web/logo_calc_db.png" alt="DB Calculator Image" width="150" height="70">
+      </div>
+      <div class="app-card" data-src="Calcul_decroissement_distance/calc_dist.html">
+        <h2>Calcul du décroissement par la distance</h2>
+        <img src="Calcul_decroissement_distance/logo_calc_dist.png" alt="DB Calculator Image" width="110" height="40" style="margin-top:15px;">
+      </div>
+      <div class="app-card" data-src="Calcul_tiers_en_bande/tiers_en _bande.html">
+        <h2>Conversion Lp tiers d'octave vers Lp octave</h2>
+        <img src="Calcul_tiers_en_bande/logo_calc_tiers_en_bande.png" alt="DB Calculator Image" width="180" height="32" style="margin-top:22px;">
+      </div>
     </div>
-    <script src="main.js"></script>
+  </section>
+  <iframe id="content-frame" style="width:100%;border:0;display:none;min-height:600px;"></iframe>
+</main>
+<footer>
+  <p>© 2024 Aacoustic - <a href="https://github.com/Aalexalex/Aacoustic">GitHub</a></p>
+</footer>
+<script src="main.js"></script>
 </body>
 </html>

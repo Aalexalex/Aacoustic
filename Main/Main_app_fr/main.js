@@ -1,30 +1,33 @@
-// Fonction pour changer de langue
+// Changer de langue
 function changeLanguage(lang) {
-    if(lang === 'fr') {
+    if (lang === 'fr') {
         window.location.href = '/Aacoustic/Main/Main_app_fr/main.html';
-    } else if(lang === 'en') {
+    } else if (lang === 'en') {
         window.location.href = '/Aacoustic/Main/Main_app_en/main.html';
     }
 }
 
-// Ajout des applications 
-document.addEventListener("DOMContentLoaded", function() {
-    const dbCalculator = document.getElementById("db-calculator");
-    const distanceDecay = document.getElementById("distance-decay");
-    const lptierslpoct = document.getElementById("lptiers-lpoct");
+document.addEventListener('DOMContentLoaded', function () {
+    const cards = document.querySelectorAll('.app-card');
+    const frame = document.getElementById('content-frame');
+    const home = document.getElementById('home-section');
+    const title = document.querySelector('header h1');
 
-    dbCalculator.addEventListener("click", function() {
-        window.open("Calculs_db_web/calc_db.html", "_blank");
+    cards.forEach(card => {
+        card.addEventListener('click', () => {
+            const src = card.getAttribute('data-src');
+            if (src) {
+                frame.src = src;
+                frame.style.display = 'block';
+                home.style.display = 'none';
+            }
+        });
     });
 
-    distanceDecay.addEventListener("click", function() {
-        window.open("Calcul_decroissement_distance/calc_dist.html", "_blank");
-    });
-
-    lptierslpoct.addEventListener("click", function() {
-        window.open("Calcul_tiers_en_bande/tiers_en _bande.html", "_blank");
-    });
-        
-
-    // Ajoutez plus de gestionnaires d'événements ici pour d'autres applications
+    if (title) {
+        title.addEventListener('click', () => {
+            frame.style.display = 'none';
+            home.style.display = 'block';
+        });
+    }
 });

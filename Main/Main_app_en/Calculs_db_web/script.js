@@ -3,18 +3,26 @@ document.addEventListener("DOMContentLoaded", function() {
     const calculateBtn = document.getElementById("calculateBtn");
     const resultDiv = document.getElementById("result");
     const historyDiv = document.getElementById("history");
+    const errorDiv = document.getElementById("error-message");
 
-    // Adding an event listener for the "Enter" key
     inputField.addEventListener("keydown", function(event) {
         if (event.key === "Enter") {
-            event.preventDefault(); // Prevent the default behavior of the "Enter" key
-            calculateBtn.click(); // Trigger a click on the "Calculate" button
+            event.preventDefault();
+            calculateBtn.click();
         }
     });
 
     calculateBtn.addEventListener("click", function() {
-        const text = inputField.value;
-        if (!text) return;
+        const text = inputField.value.trim();
+        if (!text) {
+            errorDiv.textContent = "Please enter an expression";
+            return;
+        }
+        if(!/^[-+0-9.\s]+$/.test(text)) {
+            errorDiv.textContent = "Invalid values";
+            return;
+        }
+        errorDiv.textContent = "";
 
         let elements = text.split("+");
         let total_positive = 0;
@@ -34,7 +42,7 @@ document.addEventListener("DOMContentLoaded", function() {
         });
 
         let total = total_positive - total_negative;
-        
+
         if (total <= 0) {
             resultDiv.innerHTML = "Result: Impossible (total <= 0)";
             historyDiv.innerHTML += `${text}<br><b>Impossible</b><br>--------<br>`;
