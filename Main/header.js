@@ -1,36 +1,12 @@
 (function() {
   const config = window.headerConfig || {};
 
-  function insertAnalytics() {
-    if (!document.querySelector('script[data-adsense]')) {
-      const ads = document.createElement('script');
-      ads.async = true;
-      ads.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9605384505780666';
-      ads.crossOrigin = 'anonymous';
-      ads.dataset.adsense = 'true';
-      document.head.appendChild(ads);
+  function insertHeader() {
+    if (document.getElementById('custom-header')) {
+      return;
     }
-    if (!document.querySelector('script[data-gtag]')) {
-      const gtagScript = document.createElement('script');
-      gtagScript.async = true;
-      gtagScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-YET08GB3VB';
-      gtagScript.dataset.gtag = 'true';
-      document.head.appendChild(gtagScript);
-
-      const inline = document.createElement('script');
-      inline.dataset.gtagInline = 'true';
-      inline.textContent = `
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-YET08GB3VB');
-      `;
-      document.head.appendChild(inline);
-    }
-  }
-
-  function buildHeader() {
     const header = document.createElement('header');
+    header.id = 'custom-header';
     header.className = 'header';
 
     const headerContent = document.createElement('div');
@@ -66,10 +42,38 @@
     document.body.prepend(header);
   }
 
+  function insertAnalytics() {
+    if (!document.querySelector('script[data-adsense]')) {
+      const ads = document.createElement('script');
+      ads.async = true;
+      ads.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9605384505780666';
+      ads.crossOrigin = 'anonymous';
+      ads.dataset.adsense = 'true';
+      document.head.appendChild(ads);
+    }
+    if (!document.querySelector('script[data-gtag]')) {
+      const gtagScript = document.createElement('script');
+      gtagScript.async = true;
+      gtagScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-YET08GB3VB';
+      gtagScript.dataset.gtag = 'true';
+      document.head.appendChild(gtagScript);
+
+      const inline = document.createElement('script');
+      inline.dataset.gtagInline = 'true';
+      inline.textContent = `
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-YET08GB3VB');
+      `;
+      document.head.appendChild(inline);
+    }
+  }
+
   insertAnalytics();
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', buildHeader);
+    document.addEventListener('DOMContentLoaded', insertHeader);
   } else {
-    buildHeader();
+    insertHeader();
   }
 })();

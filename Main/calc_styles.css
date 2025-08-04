@@ -84,12 +84,23 @@ input {
   transition: background-color 0.3s;
 }
 
+
 .button-calc:hover {
   background-color: #45a049;
 }
 
 .full-width {
   grid-column: span 2;
+}
+
+@media (max-width: 600px) {
+  .full-width {
+    grid-column: auto;
+  }
+}
+
+.form-grid.stacked {
+  grid-template-columns: 1fr;
 }
 
 .home-icon {
@@ -99,4 +110,58 @@ input {
 
 .table-wrapper {
   overflow-x: auto;
+}
+
+.header-cell {
+  min-width: 200px;
+  white-space: nowrap;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  border: 2px solid #000;
+}
+
+th, td {
+  border: 1px solid #ccc;
+  text-align: center;
+  padding: 8px;
+}
+
+th.header-cell {
+  background-color: #f2f2f2;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+tr.octave-row td {
+  border-top: 2px solid #000;
+}
+
+tr.thirds-row td {
+  border-bottom: 2px solid #000;
+}
+
+#conversionTable input {
+  width: 40px;
+  height: 30px;
+  margin: auto;
+  padding: 1px;
+  text-align: center;
+}
+
+#conversionTable td {
+  text-align: center;
+}
+
+#resultsTable td,
+#resultsTable th {
+  border: 2px solid black;
+}
+
+.resultsTable-td {
+  border: 2px solid #ccc;
 }
