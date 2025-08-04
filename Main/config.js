@@ -1,11 +1,12 @@
 window.appConfig = {
+  dashboard: 'Main/main.html',
   baseDir: {
     en: 'Main_app_en',
     fr: 'Main_app_fr'
   },
   translations: {
     en: {
-      title: 'Acoustic tools suite',
+      title: "Suite d'outils acoustiques",
       description: 'Acoustic Tools provides a suite of utilities for common acoustics calculations.',
       dbTitle: 'Addition and subtraction of dB levels',
       dbDesc: 'Add or subtract sound levels in dB/dBA.',

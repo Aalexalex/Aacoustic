@@ -1,9 +1,8 @@
 function changeLanguage(lang) {
-  const parts = window.location.pathname.split('/').filter(Boolean);
-  const mainIndex = parts.indexOf('Main');
-  const baseParts = mainIndex !== -1 ? parts.slice(0, mainIndex) : parts.slice(0, -1);
-  const basePath = baseParts.length ? '/' + baseParts.join('/') : '';
-  const url = new URL(`${basePath}/Main/main.html`, window.location.origin);
+  const script = document.querySelector('script[src$="language.js"]');
+  const base = script ? script.src : window.location.href;
+  const target = (window.appConfig && window.appConfig.dashboard) || 'Main/main.html';
+  const url = new URL(target, base);
   url.searchParams.set('lang', lang);
   window.location.href = url.toString();
 }
