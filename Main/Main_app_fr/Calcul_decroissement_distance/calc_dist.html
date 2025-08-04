@@ -1,45 +1,72 @@
 <!DOCTYPE html>
 <html>
 <head>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9605384505780666"
-     crossorigin="anonymous"></script>
-    <!-- Google tag (gtag.js) -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9605384505780666" crossorigin="anonymous"></script>
+<!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-YET08GB3VB"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-YET08GB3VB');
 </script>
-    <meta name="description" content="Cette application calcule le décroissement du niveau acoustique en fonction de la distance. Un outil indispensable pour les ingénieurs acousticiens, les étudiants et les professionnels en acoustique.">
-    <link rel="alternate" hreflang="fr" href="https://aalexalex.github.io/Aacoustic/Main/Main_app_fr/Calcul_decroissement_distance/calc_dist.html">
-    <link rel="alternate" hreflang="en" href="https://aalexalex.github.io/Aacoustic/Main/Main_app_en/Calcul_decroissement_distance/calc_dist.html">
-    <title>Calculateur de Décroissement du Bruit</title>
-    <link rel="icon" href="icon.ico" type="image/x-icon">  <!-- Favicon -->
-    <meta charset="UTF-8">
-    <script type="text/javascript" id="MathJax-script" async
-        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-    </script>
-    <link rel="stylesheet" type="text/css" href="styles.css">
+<meta name="description" content="Cette application calcule le décroissement du niveau acoustique en fonction de la distance. Un outil indispensable pour les ingénieurs acousticiens, les étudiants et les professionnels en acoustique.">
+<link rel="alternate" hreflang="fr" href="https://aalexalex.github.io/Aacoustic/Main/Main_app_fr/Calcul_decroissement_distance/calc_dist.html">
+<link rel="alternate" hreflang="en" href="https://aalexalex.github.io/Aacoustic/Main/Main_app_en/Calcul_decroissement_distance/calc_dist.html">
+<title>Calculateur de Décroissement du Bruit</title>
+<link rel="icon" href="icon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Calcul du décroissement par la distance</h1>
-        <div class="formula">
-            <p>Formule utilisée :</p>
-            <p><span class="math-tex">\( L_2 = L_1 + 10 \log_{10} \left( \frac{4 \pi r_1^2}{Q \times 4 \pi r_2^2} \right) \)</span></p>
-        </div>
-        <div class="calculator">
-            <input type="number" id="initialNoiseLevel" placeholder="Niveau de bruit initial (L1)">
-            <input type="number" id="initialDistance" placeholder="Distance initiale (r1)">
-            <input type="number" id="directivityFactor" placeholder="Facteur directivité (Q)">
-            <input type="number" id="newDistance" placeholder="Nouvelle distance (r2)">
-            <button id="calculateBtn">Calculer</button>
-            <div id="result">Résultat : </div>
-            <div id="history">Historique : <br>--------<br></div>
-        </div>
+<header class="header">
+  <div class="header-content">
+    <h1>Calcul du décroissement par la distance</h1>
+    <nav>
+      <a href="../../main.html?lang=fr" class="nav-button"><img src="../../logo_home.png" alt="Accueil" class="home-icon"></a>
+    </nav>
+  </div>
+</header>
+<main class="container">
+  <div class="card">
+    <h2>Formule</h2>
+    <div class="formula">
+      <p>Formule utilisée :</p>
+      <p><span class="math-tex">\( L_2 = L_1 + 10 \log_{10} \left( \frac{4 \pi r_1^2}{Q \times 4 \pi r_2^2} \right) \)</span></p>
     </div>
-    <script src="script.js"></script>
+  </div>
+  <div class="card">
+    <h2>Saisies</h2>
+    <div class="form-grid">
+      <div>
+        <label for="initialNoiseLevel">Niveau de bruit initial (L1)</label>
+        <input type="number" id="initialNoiseLevel" placeholder="Niveau de bruit initial (L1)">
+      </div>
+      <div>
+        <label for="initialDistance">Distance initiale (r1)</label>
+        <input type="number" id="initialDistance" placeholder="Distance initiale (r1)">
+      </div>
+      <div>
+        <label for="directivityFactor">Facteur directivité (Q)</label>
+        <input type="number" id="directivityFactor" placeholder="Facteur directivité (Q)">
+      </div>
+      <div>
+        <label for="newDistance">Nouvelle distance (r2)</label>
+        <input type="number" id="newDistance" placeholder="Nouvelle distance (r2)">
+      </div>
+      <div class="full-width">
+        <button id="calculateBtn" type="button" class="button-calc">Calculer</button>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <h2>Résultat</h2>
+    <div id="result">Résultat : </div>
+    <div id="history">Historique : <br>--------<br></div>
+  </div>
+</main>
+<script src="script.js"></script>
 </body>
 </html>
