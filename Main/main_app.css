@@ -1,5 +1,5 @@
 :root {
-  --primary-color: #4A90E2;
+  --primary-color: #2c3e78;
   --accent-color: #789F6F;
   --bg-color: #f9f9f9;
 }
@@ -25,11 +25,6 @@ body {
 
 .title-container h1 {
   margin: 0;
-}
-
-.tagline {
-  margin: 0;
-  font-size: 0.9rem;
 }
 
 .lang-selector .flag {

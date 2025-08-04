@@ -1,9 +1,9 @@
 // Fonction pour changer de langue
 function changeLanguage(lang) {
     if(lang === 'fr') {
-        window.location.href = 'Main/Main_app_fr/main.html';
+        window.location.href = 'Main/main.html?lang=fr';
     } else if(lang === 'en') {
-        window.location.href = 'Main/Main_app_en/main.html';
+        window.location.href = 'Main/main.html?lang=en';
     }
 }
 
@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     lptierslpoct.addEventListener("click", function() {
-        window.open("Calcul_tiers_en_bande/tiers_en _bande.html", "_blank");
+        window.open("Calcul_tiers_en_bande/tiers_en_bande.html", "_blank");
     });
         
 
