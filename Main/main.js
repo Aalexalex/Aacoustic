@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   const url = new URL(window.location);
   let lang = url.searchParams.get('lang');
-  const translations = window.appConfig.translations;
+  const {translations} = window.appConfig;
   if (!translations[lang]) {
     const userLang = navigator.language || navigator.userLanguage;
     lang = userLang && userLang.startsWith('fr') ? 'fr' : 'en';
