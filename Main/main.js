@@ -1,4 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
+  if (!window.appConfig) {
+    console.error('appConfig not loaded');
+    return;
+  }
   const url = new URL(window.location);
   let lang = url.searchParams.get('lang');
   const translations = window.appConfig.translations;
@@ -42,14 +46,16 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.tool-card').forEach(card => {
     const id = card.id;
     const tool = window.appConfig.tools[id];
-    if (tool) {
-      if (tool.page) {
-        card.href = `${base}/${tool.page}`;
-      }
-      const img = card.querySelector('img');
-      if (img && tool.img) {
-        img.src = `${base}/${tool.img}`;
-      }
+    if (!tool) {
+      console.warn(`No tool config for card id "${id}"`);
+      return;
+    }
+    if (tool.page) {
+      card.href = `${base}/${tool.page}`;
+    }
+    const img = card.querySelector('img');
+    if (img && tool.img) {
+      img.src = `${base}/${tool.img}`;
     }
   });
 

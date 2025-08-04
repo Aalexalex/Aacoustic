@@ -1,10 +1,9 @@
 function changeLanguage(lang) {
-  const segments = window.location.pathname.split('/');
-  let base = '';
-  if (segments[1] && segments[1] !== 'Main' && !segments[1].includes('.')) {
-    base = '/' + segments[1];
-  }
-  const url = new URL(base + '/Main/main.html', window.location.origin);
+  const parts = window.location.pathname.split('/').filter(Boolean);
+  const mainIndex = parts.indexOf('Main');
+  const baseParts = mainIndex !== -1 ? parts.slice(0, mainIndex) : parts.slice(0, -1);
+  const basePath = baseParts.length ? '/' + baseParts.join('/') : '';
+  const url = new URL(`${basePath}/Main/main.html`, window.location.origin);
   url.searchParams.set('lang', lang);
   window.location.href = url.toString();
 }
