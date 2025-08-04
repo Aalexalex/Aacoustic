@@ -1,14 +1,9 @@
-function changeLanguage(lang) {
-  const url = new URL(window.location);
-  url.searchParams.set('lang', lang);
-  window.location.href = url.toString();
-}
-
 document.addEventListener('DOMContentLoaded', () => {
   const url = new URL(window.location);
   let lang = url.searchParams.get('lang');
   if (lang !== 'en' && lang !== 'fr') {
-    lang = 'fr';
+    const userLang = navigator.language || navigator.userLanguage;
+    lang = userLang && userLang.startsWith('fr') ? 'fr' : 'en';
   }
 
   const translations = {
@@ -19,7 +14,10 @@ document.addEventListener('DOMContentLoaded', () => {
       distTitle: "Calcul du décroissement par la distance",
       distDesc: "Évaluez la perte de niveau sonore avec l'éloignement.",
       tiersTitle: "Conversion Lp tiers d'octave vers Lp octave",
-      tiersDesc: "Convertissez un spectre Lp en bandes d’octave."
+      tiersDesc: "Convertissez un spectre Lp en bandes d’octave.",
+      dbAlt: "Logo du calculateur de dB",
+      distAlt: "Logo du calculateur de décroissement de distance",
+      tiersAlt: "Logo du calculateur de tiers d'octave en bande"
     },
     en: {
       title: "Acoustic tools suite",
@@ -28,7 +26,10 @@ document.addEventListener('DOMContentLoaded', () => {
       distTitle: "Distance decay calculation",
       distDesc: "Estimate level loss over distance.",
       tiersTitle: "Conversion from third-octave Lp to octave Lp",
-      tiersDesc: "Convert an Lp spectrum to octave bands."
+      tiersDesc: "Convert an Lp spectrum to octave bands.",
+      dbAlt: "dB calculator logo",
+      distAlt: "Distance decay calculator logo",
+      tiersAlt: "Third-octave to octave converter logo"
     }
   };
 
@@ -61,6 +62,14 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('distance-decay-desc').textContent = text.distDesc;
   document.getElementById('lptiers-lpoct-title').textContent = text.tiersTitle;
   document.getElementById('lptiers-lpoct-desc').textContent = text.tiersDesc;
+  document.querySelector('#db-calculator img').setAttribute('alt', text.dbAlt);
+  document.querySelector('#distance-decay img').setAttribute('alt', text.distAlt);
+  document.querySelector('#lptiers-lpoct img').setAttribute('alt', text.tiersAlt);
+
+  document.querySelectorAll('.tool-card img').forEach(img => {
+    const base = img.getAttribute('data-img');
+    img.src = `Main_app_${lang}/${base}`;
+  });
 
   Object.entries(toolUrls[lang]).forEach(([id, href]) => {
     const card = document.getElementById(id);

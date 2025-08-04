@@ -18,16 +18,10 @@
     <link rel="icon" href="icon.ico" type="image/x-icon">  <!-- Favicon -->
         <meta charset="UTF-8">
     <title>Redirection en fonction de la langue</title>
+    <script src="language.js"></script>
     <script type="text/javascript">
-        // Détecter la langue du navigateur
         var userLang = navigator.language || navigator.userLanguage;
-
-        // Rediriger en fonction de la langue
-        if(userLang.startsWith('fr')) {
-            window.location.href = 'Main/main.html?lang=fr';
-        } else {
-            window.location.href = 'Main/main.html?lang=en';
-        }
+        changeLanguage(userLang && userLang.startsWith('fr') ? 'fr' : 'en');
     </script>
 </head>
 <body>
