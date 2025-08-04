@@ -1,17 +1,17 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="">
-  <title></title>
+  <meta name="description" content="Acoustic Tools provides a suite of utilities for common acoustics calculations." data-i18n-meta="description">
+  <title data-i18n="title">Acoustic tools suite</title>
   <link rel="icon" href="../icon.ico" type="image/x-icon">
   <link rel="stylesheet" type="text/css" href="main_app.css">
 </head>
 <body>
   <header class="site-header">
     <div class="title-container">
-      <h1 id="site-title"></h1>
+      <h1 id="site-title" data-i18n="title"></h1>
     </div>
     <div class="lang-selector">
       <img class="flag" src="logo_fr.png" alt="Français" title="Français" data-lang="fr" width="32" height="20">
@@ -20,26 +20,27 @@
   </header>
 
   <section class="tool-grid">
-    <article class="tool-card" id="db-calculator">
-      <img data-img="Calculs_db_web/logo_calc_db.png" alt="Logo du calculateur de dB">
-      <h2 id="db-calculator-title"></h2>
-      <p class="tool-desc" id="db-calculator-desc"></p>
-    </article>
+    <a class="tool-card" id="db-calculator" target="_blank" rel="noopener noreferrer">
+      <img data-i18n-alt="dbAlt" alt="dB calculator logo">
+      <h2 data-i18n="dbTitle"></h2>
+      <p class="tool-desc" data-i18n="dbDesc"></p>
+    </a>
 
-    <article class="tool-card" id="distance-decay">
-      <img data-img="Calcul_decroissement_distance/logo_calc_dist.png" alt="Logo du calculateur de décroissement de distance">
-      <h2 id="distance-decay-title"></h2>
-      <p class="tool-desc" id="distance-decay-desc"></p>
-    </article>
+    <a class="tool-card" id="distance-decay" target="_blank" rel="noopener noreferrer">
+      <img data-i18n-alt="distAlt" alt="Distance decay calculator logo">
+      <h2 data-i18n="distTitle"></h2>
+      <p class="tool-desc" data-i18n="distDesc"></p>
+    </a>
 
-    <article class="tool-card" id="lptiers-lpoct">
-      <img data-img="Calcul_tiers_en_bande/logo_calc_tiers_en_bande.png" alt="Logo du calculateur de tiers d'octave en bande">
-      <h2 id="lptiers-lpoct-title"></h2>
-      <p class="tool-desc" id="lptiers-lpoct-desc"></p>
-    </article>
+    <a class="tool-card" id="lptiers-lpoct" target="_blank" rel="noopener noreferrer">
+      <img data-i18n-alt="tiersAlt" alt="Third-octave to octave converter logo">
+      <h2 data-i18n="tiersTitle"></h2>
+      <p class="tool-desc" data-i18n="tiersDesc"></p>
+    </a>
   </section>
 
   <script src="../language.js"></script>
+  <script src="config.js"></script>
   <script src="main.js"></script>
 </body>
 </html>

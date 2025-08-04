@@ -54,6 +54,9 @@ body {
   padding: 20px;
   cursor: pointer;
   transition: transform 0.2s, box-shadow 0.2s;
+  display: block;
+  text-decoration: none;
+  color: inherit;
 }
 
 .tool-card:hover {
