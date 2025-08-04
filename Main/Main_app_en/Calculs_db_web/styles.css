@@ -1,46 +1,109 @@
+:root {
+  --primary-color: #2c3e78;
+  --button-color: #4CAF50;
+  --button-hover: #45a049;
+  --bg-color: #f9f9f9;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: var(--bg-color);
+  margin: 0;
+  padding: 0;
+}
+
+.header {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-button {
+  background-color: white;
+  color: var(--primary-color);
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background-color 0.3s;
+  display: flex;
+  align-items: center;
+}
+
+.nav-button:hover {
+  background-color: #e3e3e3;
+}
+
 .container {
-    width: 600px;
-    margin: auto;
-    margin-top: 100px;
+  width: 90%;
+  max-width: 800px;
+  margin: 1rem auto;
+}
+
+.card {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 1rem;
+}
+
+@media (max-width: 600px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+label,
+input {
+  display: block;
+  width: 100%;
+  margin-bottom: 0.5rem;
 }
 
 input {
-    font-size: 16px;
-    padding: 10px;
-    border: 2px solid #ccc;
-    border-radius: 5px;
-    width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
 }
 
-button {
-    font-size: 16px;
-    background-color: #789F6F;
-    color: white;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 10px;
+.button-calc {
+  background-color: var(--button-color);
+  color: white;
+  padding: 0.7rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
 
-button:hover {
-    background-color: #688F5F;
+.button-calc:hover {
+  background-color: var(--button-hover);
 }
 
 #result {
-    font-size: 20px;
-    color: #333;
-    border: 2px solid #ccc;
-    border-radius: 5px;
-    padding: 10px;
-    margin-top: 10px;
+  font-size: 1.2rem;
+  color: #333;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  margin-top: 10px;
 }
 
 #history {
-    margin-top: 20px;
+  margin-top: 20px;
 }
 
 .formula {
-    font-size: 16px;
-    margin-right: 20px;
+  font-size: 1rem;
+  margin-bottom: 1rem;
 }
