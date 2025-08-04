@@ -1,15 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9605384505780666" crossorigin="anonymous"></script>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-YET08GB3VB"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-YET08GB3VB');
-</script>
 <meta name="description" content="Cette application vous permet d'effectuer la somme et la soustraction de niveaux acoustiques en dB et dBA. Idéal pour les ingénieurs acousticiens, les étudiants et les professionnels du domaine.">
 <link rel="alternate" hreflang="fr" href="https://aalexalex.github.io/Aacoustic/Main/Main_app_fr/Calculs_db_web/calc_db.html">
 <link rel="alternate" hreflang="en" href="https://aalexalex.github.io/Aacoustic/Main/Main_app_en/Calculs_db_web/calc_db.html">
@@ -19,16 +10,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <link rel="stylesheet" type="text/css" href="styles.css">
+<script>
+  window.headerConfig = {
+    title: 'Addition et soustraction des niveaux en dB',
+    home: '../../main.html?lang=fr',
+    homeIcon: '../../logo_home.png',
+    lang: 'fr'
+  };
+</script>
+<script src="../../header.js" defer></script>
+<script src="script.js" defer></script>
 </head>
 <body>
-<header class="header">
-  <div class="header-content">
-    <h1>Addition et soustraction des niveaux en dB</h1>
-    <nav>
-      <a href="../../main.html?lang=fr" class="nav-button"><img src="../../logo_home.png" alt="Accueil" class="home-icon"></a>
-    </nav>
-  </div>
-</header>
 <main class="container">
   <div class="card">
     <h2>Formule</h2>
@@ -57,6 +50,5 @@
     <div id="history">Historique : <br>--------<br></div>
   </div>
 </main>
-<script src="script.js"></script>
 </body>
 </html>
