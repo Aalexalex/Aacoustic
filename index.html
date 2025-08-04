@@ -15,10 +15,11 @@
   <link rel="icon" href="icon.ico" type="image/x-icon">  <!-- Favicon -->
   <meta charset="UTF-8">
   <title>Suite d'outils acoustiques</title>
+    <script src="Main/config.js"></script>
     <script src="language.js"></script>
     <script type="text/javascript">
         var userLang = navigator.language || navigator.userLanguage;
-        changeLanguage(userLang && userLang.startsWith('fr') ? 'fr' : 'en');
+        changeLanguage(userLang && userLang.startsWith('fr') ? 'fr' : 'en', window.appConfig.basePath);
     </script>
 </head>
 <body>

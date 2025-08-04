@@ -1,4 +1,6 @@
 window.appConfig = {
+  // set basePath if the app is served from a subdirectory like '/Aacoustic'
+  basePath: '',
   dashboard: 'Main/main.html',
   baseDir: {
     en: 'Main_app_en',
@@ -6,7 +8,7 @@ window.appConfig = {
   },
   translations: {
     en: {
-      title: "Suite d'outils acoustiques",
+      title: "Acoustic Tools Suite",
       description: 'Acoustic Tools provides a suite of utilities for common acoustics calculations.',
       dbTitle: 'Addition and subtraction of dB levels',
       dbDesc: 'Add or subtract sound levels in dB/dBA.',

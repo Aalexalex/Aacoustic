@@ -30,7 +30,7 @@ body {
 
 .lang-selector .flag {
   height: 20px;
-  width: auto;
+  width: 32px;
   margin-left: 10px;
   cursor: pointer;
   transition: transform 0.2s;
@@ -86,4 +86,9 @@ body {
 .tool-desc {
   font-size: 0.9rem;
   color: #555;
+}
+
+.tool-card.disabled {
+  pointer-events: none;
+  opacity: 0.5;
 }

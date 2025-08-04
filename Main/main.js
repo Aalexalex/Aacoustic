@@ -1,3 +1,4 @@
+(() => {
 document.addEventListener('DOMContentLoaded', () => {
   if (!window.appConfig) {
     console.error('appConfig not loaded');
@@ -48,6 +49,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const tool = window.appConfig.tools[id];
     if (!tool) {
       console.warn(`No tool config for card id "${id}"`);
+      card.classList.add('disabled');
+      card.removeAttribute('href');
       return;
     }
     if (tool.page) {
@@ -62,7 +65,8 @@ document.addEventListener('DOMContentLoaded', () => {
   // language selector
   document.querySelectorAll('.lang-selector .flag').forEach(flag => {
     flag.addEventListener('click', () => {
-      changeLanguage(flag.getAttribute('data-lang'));
+      changeLanguage(flag.getAttribute('data-lang'), window.appConfig.basePath);
     });
   });
 });
+})();
