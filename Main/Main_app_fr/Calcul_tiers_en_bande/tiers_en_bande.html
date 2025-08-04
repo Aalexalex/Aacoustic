@@ -18,10 +18,8 @@
     <title>Conversion Niveaux d'Octave</title>
     <link rel="icon" href="icon.ico" type="image/x-icon">
     <meta charset="UTF-8">
-    <script type="text/javascript" id="MathJax-script" async
-        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-    </script>
-    <link rel="stylesheet" type="text/css" href="styles.css">
+    <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="stylesheet" href="../global.css">
 </head>
 <body>
     <div class="container">
@@ -30,14 +28,14 @@
             <p>Formule utilisée :</p>
             <p><span class="math-tex">\( L_{\text{octave}} = 10 \log_{10} \left( \sum_{i=1}^{n} 10^{L_{\text{1/3 octave},i}/10} \right) \)</span></p>
         </div>
+        <div id="error-message" class="error-message" style="display: none;"></div>
         <table id="conversionTable">
             <!-- Le contenu du tableau sera généré par JavaScript -->
         </table>
-        <table id="resultsTable">
-            <!-- Le contenu du tableau sera généré par JavaScript -->
-        </table>        
+        <div id="results-card" class="result-card" style="display: none;">
+            <table id="resultsTable"></table>
+        </div>
         <button id="calculateBtn">Calculer</button>
-       
     </div>
     <script src="script.js" defer></script>
 </body>
