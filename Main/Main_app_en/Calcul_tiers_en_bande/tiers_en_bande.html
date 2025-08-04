@@ -3,9 +3,8 @@
 <head>
     <meta name="description" content="This application allows you to convert a spectrum of acoustic levels in dB from third-octave bands to octave bands. Perfect for acoustic engineers, students, and professionals.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="google-adsense-account" content="ca-pub-9605384505780666">
-    <link rel="alternate" hreflang="en" href="https://aalexalex.github.io/Aacoustic/Main/Main_app_en/Calcul_tiers_en_bande/tiers_en%20_bande.html">
-    <link rel="alternate" hreflang="fr" href="https://aalexalex.github.io/Aacoustic/Main/Main_app_fr/Calcul_tiers_en_bande/tiers_en%20_bande.html">
+    <link rel="alternate" hreflang="en" href="https://aalexalex.github.io/Aacoustic/Main/Main_app_en/Calcul_tiers_en_bande/tiers_en_bande.html">
+    <link rel="alternate" hreflang="fr" href="https://aalexalex.github.io/Aacoustic/Main/Main_app_fr/Calcul_tiers_en_bande/tiers_en_bande.html">
     <title>Octave Band Conversion</title>
     <link rel="icon" href="icon.ico" type="image/x-icon">
     <meta charset="UTF-8">
@@ -16,7 +15,12 @@
         title: 'Third-Octave to Octave Conversion',
         home: '../../main.html?lang=en',
         homeIcon: '../../logo_home.png',
-        lang: 'en'
+        lang: 'en',
+        links: [
+          { href: '../Calculs_db_web/calc_db.html', label: 'dB Addition' },
+          { href: '../Calcul_decroissement_distance/calc_dist.html', label: 'Distance Decay' }
+        ],
+        onMathJaxReady: () => MathJax.typesetPromise()
       };
     </script>
     <script src="../../header.js" defer></script>

@@ -15,7 +15,12 @@
     title: 'Addition et soustraction des niveaux en dB',
     home: '../../main.html?lang=fr',
     homeIcon: '../../logo_home.png',
-    lang: 'fr'
+    lang: 'fr',
+    links: [
+      { href: '../Calcul_decroissement_distance/calc_dist.html', label: 'Décroissement' },
+      { href: '../Calcul_tiers_en_bande/tiers_en_bande.html', label: "Tiers d'octave" }
+    ],
+    onMathJaxReady: () => MathJax.typesetPromise()
   };
 </script>
 <script src="../../header.js" defer></script>

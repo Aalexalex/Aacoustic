@@ -15,7 +15,12 @@
     title: 'Sound Level Decay by Distance',
     home: '../../main.html?lang=en',
     homeIcon: '../../logo_home.png',
-    lang: 'en'
+    lang: 'en',
+    links: [
+      { href: '../Calculs_db_web/calc_db.html', label: 'dB Addition' },
+      { href: '../Calcul_tiers_en_bande/tiers_en_bande.html', label: 'Third-Octave' }
+    ],
+    onMathJaxReady: () => MathJax.typesetPromise()
   };
 </script>
 <script src="../../header.js" defer></script>

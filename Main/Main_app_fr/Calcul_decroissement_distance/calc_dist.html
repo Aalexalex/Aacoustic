@@ -15,7 +15,12 @@
     title: 'Calcul du décroissement par la distance',
     home: '../../main.html?lang=fr',
     homeIcon: '../../logo_home.png',
-    lang: 'fr'
+    lang: 'fr',
+    links: [
+      { href: '../Calculs_db_web/calc_db.html', label: 'Addition dB' },
+      { href: '../Calcul_tiers_en_bande/tiers_en_bande.html', label: "Tiers d'octave" }
+    ],
+    onMathJaxReady: () => MathJax.typesetPromise()
   };
 </script>
 <script src="../../header.js" defer></script>

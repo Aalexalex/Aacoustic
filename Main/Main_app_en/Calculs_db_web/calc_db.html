@@ -15,7 +15,12 @@
     title: 'Addition and Subtraction of dB Levels',
     home: '../../main.html?lang=en',
     homeIcon: '../../logo_home.png',
-    lang: 'en'
+    lang: 'en',
+    links: [
+      { href: '../Calcul_decroissement_distance/calc_dist.html', label: 'Distance Decay' },
+      { href: '../Calcul_tiers_en_bande/tiers_en_bande.html', label: 'Third-Octave' }
+    ],
+    onMathJaxReady: () => MathJax.typesetPromise()
   };
 </script>
 <script src="../../header.js" defer></script>
