@@ -51,6 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
       console.warn(`No tool config for card id "${id}"`);
       card.classList.add('disabled');
       card.removeAttribute('href');
+      card.setAttribute('title', 'This tool is currently unavailable.');
       return;
     }
     if (tool.page) {

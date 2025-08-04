@@ -30,7 +30,7 @@ body {
 
 .lang-selector .flag {
   height: 20px;
-  width: 32px;
+  width: auto;
   margin-left: 10px;
   cursor: pointer;
   transition: transform 0.2s;
