@@ -1,7 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta name="google-site-verification" content="Sjip0go69PRq8BqApC8XKQdCMxklhFYWeIIrZODHPzM" />
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -9,28 +11,18 @@
 
   gtag('config', 'G-YET08GB3VB');
 </script>
-    <!-- Pour les moteurs de recherche anglophones -->
-    <meta name="description" content="Acoustic Tools is your comprehensive suite of tools for acoustic calculations. Choose your language to get started." lang="en">
-
-    <!-- Pour les moteurs de recherche francophones -->
-    <meta name="description" content="Outils Acoustiques est votre suite complète d'outils pour les calculs acoustiques. Choisissez votre langue pour commencer." lang="fr">
-
-    <link rel="icon" href="icon.ico" type="image/x-icon">  <!-- Favicon -->
-        <meta charset="UTF-8">
-    <title>Redirection en fonction de la langue</title>
+  <meta name="description" content="Suite d'outils acoustiques pour les calculs acoustiques.">
+  <link rel="icon" href="icon.ico" type="image/x-icon">  <!-- Favicon -->
+  <meta charset="UTF-8">
+  <title>Suite d'outils acoustiques</title>
+    <script src="Main/config.js"></script>
+    <script src="language.js"></script>
     <script type="text/javascript">
-        // Détecter la langue du navigateur
         var userLang = navigator.language || navigator.userLanguage;
-
-        // Rediriger en fonction de la langue
-        if(userLang.startsWith('fr')) {
-            window.location.href = 'Main/Main_app_fr/main.html';
-        } else {
-            window.location.href = 'Main/Main_app_en/main.html';
-        }
+        changeLanguage(userLang && userLang.startsWith('fr') ? 'fr' : 'en', window.appConfig.basePath);
     </script>
 </head>
 <body>
-    
+
 </body>
 </html>

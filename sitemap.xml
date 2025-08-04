@@ -9,7 +9,7 @@
   
   <!-- Page principale de l'application en français -->
   <url>
-    <loc>https://aalexalex.github.io/Aacoustic/Main/Main_app_fr/main.html</loc>
+    <loc>https://aalexalex.github.io/Aacoustic/Main/main.html?lang=fr</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -33,7 +33,7 @@
 
   <!-- Page principale de l'application en anglais -->
   <url>
-    <loc>https://aalexalex.github.io/Aacoustic/Main/Main_app_en/main.html</loc>
+    <loc>https://aalexalex.github.io/Aacoustic/Main/main.html?lang=en</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
