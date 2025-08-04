@@ -64,6 +64,11 @@ body {
   box-shadow: 0 6px 14px rgba(0,0,0,0.15);
 }
 
+.tool-card:focus {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(44,62,120,0.5), 0 4px 10px rgba(0,0,0,0.1);
+}
+
 .tool-card img {
   max-width: 80%;
   height: auto;
