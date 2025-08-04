@@ -1,44 +1,53 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YET08GB3VB"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-YET08GB3VB');
-    </script>
     <meta name="description" content="Cette application vous permet de convertir un spectre de niveaux acoustiques en dB de bandes de tiers d'octave vers des bandes d'octave. Parfait pour les ingénieurs acousticiens, les étudiants et les professionnels en acoustique.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="google-adsense-account" content="ca-pub-9605384505780666">  <!-- Balise pour associer le site à AdSense -->
-    <link rel="alternate" hreflang="fr" href="https://aalexalex.github.io/Aacoustic/Main/Main_app_fr/Calcul_tiers_en_bande/tiers_en%20_bande.html">
-    <link rel="alternate" hreflang="en" href="https://aalexalex.github.io/Aacoustic/Main/Main_app_en/Calcul_tiers_en_bande/tiers_en%20_bande.html">
+    <link rel="alternate" hreflang="fr" href="https://aalexalex.github.io/Aacoustic/Main/Main_app_fr/Calcul_tiers_en_bande/tiers_en_bande.html">
+    <link rel="alternate" hreflang="en" href="https://aalexalex.github.io/Aacoustic/Main/Main_app_en/Calcul_tiers_en_bande/tiers_en_bande.html">
     <title>Conversion Niveaux d'Octave</title>
     <link rel="icon" href="icon.ico" type="image/x-icon">
     <meta charset="UTF-8">
-    <script type="text/javascript" id="MathJax-script" async
-        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-    </script>
+    <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="stylesheet" type="text/css" href="styles.css">
+    <script>
+      window.headerConfig = {
+        title: "Conversion de Niveaux en Tiers d'Octave à Octave",
+        home: '../../main.html?lang=fr',
+        homeIcon: '../../logo_home.png',
+        lang: 'fr',
+        links: [
+          { href: '../Calculs_db_web/calc_db.html', label: 'Addition dB' },
+          { href: '../Calcul_decroissement_distance/calc_dist.html', label: 'Décroissement' }
+        ],
+        onMathJaxReady: () => MathJax.typesetPromise()
+      };
+    </script>
+    <script src="../../header.js" defer></script>
+    <script src="script.js" defer></script>
 </head>
 <body>
-    <div class="container">
-        <h1>Conversion de Niveaux en Tiers d'Octave à Octave</h1>
-        <div class="formula">
-            <p>Formule utilisée :</p>
-            <p><span class="math-tex">\( L_{\text{octave}} = 10 \log_{10} \left( \sum_{i=1}^{n} 10^{L_{\text{1/3 octave},i}/10} \right) \)</span></p>
-        </div>
-        <table id="conversionTable">
-            <!-- Le contenu du tableau sera généré par JavaScript -->
-        </table>
-        <table id="resultsTable">
-            <!-- Le contenu du tableau sera généré par JavaScript -->
-        </table>        
-        <button id="calculateBtn">Calculer</button>
-       
+<main class="container">
+  <div class="card">
+    <h2>Formule</h2>
+    <div class="formula">
+      <p>Formule utilisée :</p>
+      <p><span class="math-tex">\( L_{\text{octave}} = 10 \log_{10} \left( \sum_{i=1}^{n} 10^{L_{\text{1/3 octave},i}/10} \right) \)</span></p>
     </div>
-    <script src="script.js" defer></script>
+  </div>
+  <div class="card">
+    <h2>Saisies</h2>
+    <div class="table-wrapper">
+      <table id="conversionTable"></table>
+    </div>
+    <button id="calculateBtn" class="button-calc" type="button">Calculer</button>
+  </div>
+  <div class="card">
+    <h2>Résultat</h2>
+    <div class="table-wrapper">
+      <table id="resultsTable"></table>
+    </div>
+  </div>
+</main>
 </body>
 </html>

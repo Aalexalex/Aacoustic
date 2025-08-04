@@ -1,45 +1,69 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9605384505780666"
-     crossorigin="anonymous"></script>
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-YET08GB3VB"></script>
+<meta name="description" content="This application calculates the decay of sound level with distance. An essential tool for acoustic engineers, students, and professionals.">
+<link rel="alternate" hreflang="en" href="https://aalexalex.github.io/Aacoustic/Main/Main_app_en/Calcul_decroissement_distance/calc_dist.html">
+<link rel="alternate" hreflang="fr" href="https://aalexalex.github.io/Aacoustic/Main/Main_app_fr/Calcul_decroissement_distance/calc_dist.html">
+<title>Sound Level Decay Calculator</title>
+<link rel="icon" href="icon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" type="text/css" href="styles.css">
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-YET08GB3VB');
+  window.headerConfig = {
+    title: 'Sound Level Decay by Distance',
+    home: '../../main.html?lang=en',
+    homeIcon: '../../logo_home.png',
+    lang: 'en',
+    links: [
+      { href: '../Calculs_db_web/calc_db.html', label: 'dB Addition' },
+      { href: '../Calcul_tiers_en_bande/tiers_en_bande.html', label: 'Third-Octave' }
+    ],
+    onMathJaxReady: () => MathJax.typesetPromise()
+  };
 </script>
-    <meta name="description" content="This application calculates the decay of acoustic levels based on distance. An essential tool for acoustic engineers, students, and professionals in the field.">
-    <link rel="alternate" hreflang="en" href="https://aalexalex.github.io/Aacoustic/Main/Main_app_en/Calcul_decroissement_distance/calc_dist.html">
-    <link rel="alternate" hreflang="fr" href="https://aalexalex.github.io/Aacoustic/Main/Main_app_fr/Calcul_decroissement_distance/calc_dist.html">
-    <title>Noise Decay Calculator</title>
-    <link rel="icon" href="icon.ico" type="image/x-icon"> <!-- Favicon -->
-    <meta charset="UTF-8">
-    <script type="text/javascript" id="MathJax-script" async
-        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-    </script>
-    <link rel="stylesheet" type="text/css" href="styles.css">
+<script src="../../header.js" defer></script>
+<script src="script.js" defer></script>
 </head>
 <body>
-    <div class="container">
-        <h1>Distance-Based Noise Decay Calculator</h1>
-        <div class="formula">
-            <p>Formula used:</p>
-            <p><span class="math-tex">\( L_2 = L_1 + 10 \log_{10} \left( \frac{4 \pi r_1^2}{Q \times 4 \pi r_2^2} \right) \)</span></p>
-        </div>
-        <div class="calculator">
-            <input type="number" id="initialNoiseLevel" placeholder="Initial Noise Level (L1)">
-            <input type="number" id="initialDistance" placeholder="Initial Distance (r1)">
-            <input type="number" id="directivityFactor" placeholder="Directivity Factor (Q)">
-            <input type="number" id="newDistance" placeholder="New Distance (r2)">
-            <button id="calculateBtn">Calculate</button>
-            <div id="result">Result: </div>
-            <div id="history">History: <br>--------<br></div>
-        </div>
+<main class="container">
+  <div class="card">
+    <h2>Formula</h2>
+    <div class="formula">
+      <p>Formula used:</p>
+      <p><span class="math-tex">\( L_2 = L_1 + 10 \log_{10} \left( \frac{4 \pi r_1^2}{Q \times 4 \pi r_2^2} \right) \)</span></p>
     </div>
-    <script src="script.js"></script>
+  </div>
+  <div class="card">
+    <h2>Inputs</h2>
+    <div class="form-grid stacked">
+      <div>
+        <label for="initialNoiseLevel">Initial sound level (L1)</label>
+        <input type="number" id="initialNoiseLevel" placeholder="Initial sound level (L1)">
+      </div>
+      <div>
+        <label for="initialDistance">Initial distance (r1)</label>
+        <input type="number" id="initialDistance" placeholder="Initial distance (r1)">
+      </div>
+      <div>
+        <label for="directivityFactor">Directivity factor (Q)</label>
+        <input type="number" id="directivityFactor" placeholder="Directivity factor (Q)">
+      </div>
+      <div>
+        <label for="newDistance">New distance (r2)</label>
+        <input type="number" id="newDistance" placeholder="New distance (r2)">
+      </div>
+      <div>
+        <button id="calculateBtn" type="button" class="button-calc">Calculate</button>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <h2>Result</h2>
+    <div id="result">Result: </div>
+    <div id="history">History: <br>--------<br></div>
+  </div>
+</main>
 </body>
 </html>

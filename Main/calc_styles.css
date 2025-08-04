@@ -1,0 +1,167 @@
+:root {
+  --primary-color: #2c3e78;
+  --accent-color: #4CAF50;
+  --bg-color: #f9f9f9;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: var(--bg-color);
+  margin: 0;
+}
+
+.header {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 1rem;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-button {
+  background-color: white;
+  color: var(--primary-color);
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+.nav-button:hover {
+  background-color: #e3e3e3;
+}
+
+.container {
+  width: 90%;
+  max-width: 800px;
+  margin: 2rem auto;
+}
+
+.card {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+@media (max-width: 600px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+input, label {
+  display: block;
+  width: 100%;
+}
+
+input {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+}
+
+.button-calc {
+  background-color: var(--accent-color);
+  color: white;
+  padding: 0.7rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+
+.button-calc:hover {
+  background-color: #45a049;
+}
+
+.full-width {
+  grid-column: span 2;
+}
+
+@media (max-width: 600px) {
+  .full-width {
+    grid-column: auto;
+  }
+}
+
+.form-grid.stacked {
+  grid-template-columns: 1fr;
+}
+
+.home-icon {
+  height: 24px;
+  width: 24px;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+}
+
+.header-cell {
+  min-width: 200px;
+  white-space: nowrap;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  border: 2px solid #000;
+}
+
+th, td {
+  border: 1px solid #ccc;
+  text-align: center;
+  padding: 8px;
+}
+
+th.header-cell {
+  background-color: #f2f2f2;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+tr.octave-row td {
+  border-top: 2px solid #000;
+}
+
+tr.thirds-row td {
+  border-bottom: 2px solid #000;
+}
+
+#conversionTable input {
+  width: 40px;
+  height: 30px;
+  margin: auto;
+  padding: 1px;
+  text-align: center;
+}
+
+#conversionTable td {
+  text-align: center;
+}
+
+#resultsTable td,
+#resultsTable th {
+  border: 2px solid black;
+}
+
+.resultsTable-td {
+  border: 2px solid #ccc;
+}
