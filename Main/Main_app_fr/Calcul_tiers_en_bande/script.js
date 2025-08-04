@@ -11,7 +11,65 @@ document.addEventListener("DOMContentLoaded", function() {
     let tableContent = "";
 
     // Header for octave bands
-    let octaveHeaderRow = '<tr class="octave-row"><td class="header-cell" style="border-right: 2px solid black; border-left: 2px solid black;">Bandes d\\'Octave (Hz)</td>';
+Vous pouvez regrouper les trois boucles `.forEach` très similaires et la logique de style en ligne en une seule fonction d'aide qui construit n'importe quelle ligne pour vous. Par exemple :
+
+```js
+// 1. Helper to compute the style string
+function makeCellStyle({ index, hasRight, hasLeft }) {
+  const styles = [];
+  if (hasRight(index)) styles.push('border-right:2px solid black;');
+  if (hasLeft(index))  styles.push('border-left:2px solid black;');
+  return styles.length ? ` style="${styles.join(' ')}"` : '';
+}
+
+// 2. Generic row builder
+function buildRow(cells, { firstCell, hasRight, hasLeft }) {
+  let row = `<tr${cells.trStyle||''}>` +
+            `<td${cells.tdStyle||''}>${firstCell}</td>`;
+  cells.items.forEach((content, i) => {
+    const style = makeCellStyle({ index: i, hasRight, hasLeft });
+    row += `<td${style}>${content}</td>`;
+  });
+  return row + '</tr>';
+}
+
+// 3. Use it for octave header, third header, and input row
+const octaveItems = thirdBands.map((_, i) =>
+  (i % 3 === 1 && octaveBands[i/3|0]) ? octaveBands[i/3|0] : ''
+);
+const headerItems = thirdBands;
+const inputItems  = thirdBands.map(b => `<input type="text" id="third_${b}">`);
+
+tableContent += buildRow(
+  { items: octaveItems, trStyle:'', tdStyle:'style="border-right:2px solid black;border-left:2px solid black;"' },
+  {
+    firstCell: "Bandes d'Octave (Hz)",
+    hasRight: i => i % 3 === 2,
+    hasLeft:  () => false
+  }
+);
+
+tableContent += buildRow(
+  { items: headerItems },
+  {
+    firstCell: "Bandes en Tiers (Hz)",
+    hasRight: i => i % 3 === 2,
+    hasLeft:  () => false
+  }
+);
+
+tableContent += buildRow(
+  {
+    items: inputItems,
+    trStyle: ' style="border-bottom:2px solid black;"',
+    tdStyle:'style="border-right:2px solid black;border-left:2px solid black;"'
+  },
+  {
+    firstCell: "Niveaux en Tiers",
+    hasRight: i => i % 3 === 2,
+    hasLeft:  i => i % 3 === 0
+  }
+);
     let count = 0;
     let octaveIndex = 0;
     thirdBands.forEach(() => {
