@@ -1,15 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9605384505780666" crossorigin="anonymous"></script>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-YET08GB3VB"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-YET08GB3VB');
-</script>
 <meta name="description" content="Cette application calcule le décroissement du niveau acoustique en fonction de la distance. Un outil indispensable pour les ingénieurs acousticiens, les étudiants et les professionnels en acoustique.">
 <link rel="alternate" hreflang="fr" href="https://aalexalex.github.io/Aacoustic/Main/Main_app_fr/Calcul_decroissement_distance/calc_dist.html">
 <link rel="alternate" hreflang="en" href="https://aalexalex.github.io/Aacoustic/Main/Main_app_en/Calcul_decroissement_distance/calc_dist.html">
@@ -20,15 +11,7 @@
 <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
-<body>
-<header class="header">
-  <div class="header-content">
-    <h1>Calcul du décroissement par la distance</h1>
-    <nav>
-      <a href="../../main.html?lang=fr" class="nav-button"><img src="../../logo_home.png" alt="Accueil" class="home-icon"></a>
-    </nav>
-  </div>
-</header>
+<body data-title="Calcul du décroissement par la distance" data-home="../../main.html?lang=fr" data-home-icon="../../logo_home.png" data-home-label="Accueil">
 <main class="container">
   <div class="card">
     <h2>Formule</h2>
@@ -67,6 +50,7 @@
     <div id="history">Historique : <br>--------<br></div>
   </div>
 </main>
-<script src="script.js"></script>
+<script src="../../header.js" defer></script>
+<script src="script.js" defer></script>
 </body>
 </html>
