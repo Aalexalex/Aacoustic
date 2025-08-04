@@ -18,28 +18,54 @@
     <title>Calculateur de Décroissement du Bruit</title>
     <link rel="icon" href="icon.ico" type="image/x-icon">  <!-- Favicon -->
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script type="text/javascript" id="MathJax-script" async
         src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
     </script>
-    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" href="../../calc_page.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Calcul du décroissement par la distance</h1>
-        <div class="formula">
-            <p>Formule utilisée :</p>
-            <p><span class="math-tex">\( L_2 = L_1 + 10 \log_{10} \left( \frac{4 \pi r_1^2}{Q \times 4 \pi r_2^2} \right) \)</span></p>
-        </div>
-        <div class="calculator">
-            <input type="number" id="initialNoiseLevel" placeholder="Niveau de bruit initial (L1)">
-            <input type="number" id="initialDistance" placeholder="Distance initiale (r1)">
-            <input type="number" id="directivityFactor" placeholder="Facteur directivité (Q)">
-            <input type="number" id="newDistance" placeholder="Nouvelle distance (r2)">
-            <button id="calculateBtn">Calculer</button>
-            <div id="result">Résultat : </div>
-            <div id="history">Historique : <br>--------<br></div>
-        </div>
+<header class="header">
+  <h1>Calcul du décroissement par la distance</h1>
+  <nav>
+    <a href="../../main.html?lang=fr" class="nav-button">Accueil</a>
+  </nav>
+</header>
+<main class="container">
+  <div class="card">
+    <h2>Formule utilisée</h2>
+    <p class="formula"><span class="math-tex">\( L_2 = L_1 + 10 \log_{10} \left( \frac{4 \pi r_1^2}{Q \times 4 \pi r_2^2} \right) \)</span></p>
+  </div>
+  <div class="card">
+    <h2>Saisies</h2>
+    <div class="form-grid">
+      <div>
+        <label for="initialNoiseLevel">Niveau de bruit initial (L1)</label>
+        <input type="number" id="initialNoiseLevel" placeholder="ex : 75">
+      </div>
+      <div>
+        <label for="initialDistance">Distance initiale (r1)</label>
+        <input type="number" id="initialDistance" placeholder="ex : 1">
+      </div>
+      <div>
+        <label for="directivityFactor">Facteur directivité (Q)</label>
+        <input type="number" id="directivityFactor" placeholder="ex : 2">
+      </div>
+      <div>
+        <label for="newDistance">Nouvelle distance (r2)</label>
+        <input type="number" id="newDistance" placeholder="ex : 10">
+      </div>
+      <div class="full-width">
+        <button id="calculateBtn" class="button-calc">Calculer</button>
+      </div>
     </div>
-    <script src="script.js"></script>
+  </div>
+  <div class="card">
+    <h2>Résultat</h2>
+    <div id="result"></div>
+    <div id="history">Historique : <br>--------<br></div>
+  </div>
+</main>
+<script src="script.js"></script>
 </body>
 </html>
