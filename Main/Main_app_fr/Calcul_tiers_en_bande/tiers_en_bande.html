@@ -12,33 +12,44 @@
     </script>
     <meta name="description" content="Cette application vous permet de convertir un spectre de niveaux acoustiques en dB de bandes de tiers d'octave vers des bandes d'octave. Parfait pour les ingénieurs acousticiens, les étudiants et les professionnels en acoustique.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="google-adsense-account" content="ca-pub-9605384505780666">  <!-- Balise pour associer le site à AdSense -->
+    <meta name="google-adsense-account" content="ca-pub-9605384505780666">
     <link rel="alternate" hreflang="fr" href="https://aalexalex.github.io/Aacoustic/Main/Main_app_fr/Calcul_tiers_en_bande/tiers_en%20_bande.html">
     <link rel="alternate" hreflang="en" href="https://aalexalex.github.io/Aacoustic/Main/Main_app_en/Calcul_tiers_en_bande/tiers_en%20_bande.html">
     <title>Conversion Niveaux d'Octave</title>
     <link rel="icon" href="icon.ico" type="image/x-icon">
     <meta charset="UTF-8">
-    <script type="text/javascript" id="MathJax-script" async
-        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-    </script>
+    <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../calc_base.css">
     <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Conversion de Niveaux en Tiers d'Octave à Octave</h1>
-        <div class="formula">
-            <p>Formule utilisée :</p>
-            <p><span class="math-tex">\( L_{\text{octave}} = 10 \log_{10} \left( \sum_{i=1}^{n} 10^{L_{\text{1/3 octave},i}/10} \right) \)</span></p>
-        </div>
-        <table id="conversionTable">
-            <!-- Le contenu du tableau sera généré par JavaScript -->
-        </table>
-        <table id="resultsTable">
-            <!-- Le contenu du tableau sera généré par JavaScript -->
-        </table>        
-        <button id="calculateBtn">Calculer</button>
-       
+  <header class="header">
+    <div class="header-content">
+      <h1>Conversion tiers d'octave</h1>
+      <nav>
+        <a href="../../main.html?lang=fr" class="nav-button">Accueil</a>
+      </nav>
     </div>
-    <script src="script.js" defer></script>
+  </header>
+
+  <div class="container">
+    <div class="card">
+      <h2>Saisies</h2>
+      <table id="conversionTable"></table>
+      <button id="calculateBtn" class="button-calc">Calculer</button>
+    </div>
+
+    <div class="card">
+      <h2>Résultats</h2>
+      <table id="resultsTable"></table>
+    </div>
+
+    <div class="card">
+      <h2>Formule</h2>
+      <p><span class="math-tex">\( L_{\text{octave}} = 10 \log_{10} \left( \sum_{i=1}^{n} 10^{L_{\text{1/3 octave},i}/10} \right) \)</span></p>
+    </div>
+  </div>
+
+  <script src="script.js" defer></script>
 </body>
 </html>
