@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // configure tool cards
   const base = window.appConfig.baseDir[lang];
   document.querySelectorAll('.tool-card').forEach(card => {
-    const id = card.id;
+    const {id} = card;
     const tool = window.appConfig.tools[id];
     if (!tool) {
       console.warn(`No tool config for card id "${id}"`);
