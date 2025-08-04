@@ -1,4 +1,9 @@
 console.log("Script loaded");
+
+function parseLocaleFloat(value) {
+    return parseFloat(String(value).replace(',', '.'));
+}
+
 document.addEventListener("DOMContentLoaded", function() {
     const table = document.getElementById('conversionTable');
     const resultsTable = document.getElementById('resultsTable');
@@ -109,7 +114,7 @@ document.addEventListener("DOMContentLoaded", function() {
             if (thirds.every(element => element && element.value)) {
                 let sum = 0;
                 thirds.forEach(element => {
-                    sum += Math.pow(10, parseFloat(element.value) / 10);
+                    sum += Math.pow(10, parseLocaleFloat(element.value) / 10);
                 });
                 let octaveLevel = 10 * Math.log10(sum);
                 console.log("Octave Level:", octaveLevel);

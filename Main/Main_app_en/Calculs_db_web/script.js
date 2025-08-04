@@ -1,3 +1,34 @@
+function parseLocaleFloat(value) {
+    // Convert to string and trim whitespace
+    let str = String(value).trim();
+
+    // Remove non-breaking spaces and normal spaces (common thousands separators)
+    str = str.replace(/\s|\u00A0/g, '');
+
+    // If both ',' and '.' are present, assume the last one is the decimal separator
+    if (str.indexOf(',') > -1 && str.indexOf('.') > -1) {
+        if (str.lastIndexOf(',') > str.lastIndexOf('.')) {
+            // ',' is decimal, '.' is thousands
+            str = str.replace(/\./g, '');
+            str = str.replace(/,/g, '.');
+        } else {
+            // '.' is decimal, ',' is thousands
+            str = str.replace(/,/g, '');
+        }
+    } else if (str.indexOf(',') > -1) {
+        // Only ',' present, assume it's decimal
+        str = str.replace(/,/g, '.');
+    } else {
+        // Only '.' present or neither, assume '.' is decimal
+        // Remove any stray thousands separators (rare, but for safety)
+        str = str.replace(/(?<=\d)\.(?=\d{3}\b)/g, '');
+    }
+
+    // Validate: should be a valid float now
+    const num = parseFloat(str);
+    return isNaN(num) ? NaN : num;
+}
+
 document.addEventListener("DOMContentLoaded", function() {
     const inputField = document.getElementById("inputField");
     const calculateBtn = document.getElementById("calculateBtn");
@@ -25,10 +56,10 @@ document.addEventListener("DOMContentLoaded", function() {
             let first = true;
             sub_elements.forEach(function(sub_elem) {
                 if (first) {
-                    total_positive += Math.pow(10, parseFloat(sub_elem) / 10);
+                    total_positive += Math.pow(10, parseLocaleFloat(sub_elem) / 10);
                     first = false;
                 } else {
-                    total_negative += Math.pow(10, parseFloat(sub_elem) / 10);
+                    total_negative += Math.pow(10, parseLocaleFloat(sub_elem) / 10);
                 }
             });
         });

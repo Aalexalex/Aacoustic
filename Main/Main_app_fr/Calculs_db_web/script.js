@@ -1,3 +1,7 @@
+function parseLocaleFloat(value) {
+    return parseFloat(String(value).replace(',', '.'));
+}
+
 document.addEventListener("DOMContentLoaded", function() {
     const inputField = document.getElementById("inputField");
     const calculateBtn = document.getElementById("calculateBtn");
@@ -25,10 +29,10 @@ document.addEventListener("DOMContentLoaded", function() {
             let first = true;
             sub_elements.forEach(function(sub_elem) {
                 if (first) {
-                    total_positive += Math.pow(10, parseFloat(sub_elem) / 10);
+                    total_positive += Math.pow(10, parseLocaleFloat(sub_elem) / 10);
                     first = false;
                 } else {
-                    total_negative += Math.pow(10, parseFloat(sub_elem) / 10);
+                    total_negative += Math.pow(10, parseLocaleFloat(sub_elem) / 10);
                 }
             });
         });

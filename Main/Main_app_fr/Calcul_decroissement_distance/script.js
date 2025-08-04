@@ -1,3 +1,7 @@
+function parseLocaleFloat(value) {
+    return parseFloat(String(value).replace(',', '.'));
+}
+
 document.addEventListener("DOMContentLoaded", function() {
     const initialNoiseLevel = document.getElementById("initialNoiseLevel");
     const initialDistance = document.getElementById("initialDistance");
@@ -8,10 +12,10 @@ document.addEventListener("DOMContentLoaded", function() {
     const historyDiv = document.getElementById("history");
 
     calculateBtn.addEventListener("click", function() {
-        const L1 = parseFloat(initialNoiseLevel.value);
-        const r1 = parseFloat(initialDistance.value);
-        const Q = parseFloat(directivityFactor.value);
-        const r2 = parseFloat(newDistance.value);
+        const L1 = parseLocaleFloat(initialNoiseLevel.value);
+        const r1 = parseLocaleFloat(initialDistance.value);
+        const Q = parseLocaleFloat(directivityFactor.value);
+        const r2 = parseLocaleFloat(newDistance.value);
 
         const L2 = L1 + 10 * Math.log10((4 * Math.PI * Math.pow(r1, 2)) / (Q * 4 * Math.PI * Math.pow(r2, 2)));
         
