@@ -52,9 +52,10 @@ document.addEventListener("DOMContentLoaded", function() {
             });
         });
 
+        const EPSILON = 1e-8;
         let total = total_positive - total_negative;
 
-        if (total <= 0) {
+        if (total <= EPSILON) {
             resultDiv.innerText = "Résultat : Impossible (total <= 0)";
             resultDiv.style.display = 'block';
             historyDiv.innerHTML += `${text}<br><b>Impossible</b><br>--------<br>`;
