@@ -1,56 +1,13 @@
-(function(){
-  const buildFragment = (parts) => {
-    const frag = document.createDocumentFragment();
-    parts.forEach(part => {
-      if (typeof part === 'string') {
-        frag.append(part);
-      } else if (part.type === 'sub') {
-        const el = document.createElement('sub');
-        el.textContent = part.text;
-        frag.appendChild(el);
-      }
-    });
-    return frag;
-  };
+(function () {
+  const tpl = document.createElement('template');
+  tpl.innerHTML = `
+    <section class="calc-tool__theory">
+      <h2></h2>
+    </section>
+  `;
 
-  const buildSection = ({ id, title, paras, code }) => {
-    const section = document.createElement('section');
-    section.className = 'calc-tool__theory';
-    section.setAttribute('aria-labelledby', `theory-${id}`);
-
-    const h2 = document.createElement('h2');
-    h2.id = `theory-${id}`;
-    h2.textContent = title;
-    section.appendChild(h2);
-
-    paras.forEach(p => {
-      const pEl = document.createElement('p');
-      if (Array.isArray(p)) {
-        pEl.append(buildFragment(p));
-      } else {
-        pEl.textContent = p;
-      }
-      section.appendChild(pEl);
-    });
-
-    if (code) {
-      const pre = document.createElement('pre');
-      const codeEl = document.createElement('code');
-      if (Array.isArray(code)) {
-        codeEl.append(buildFragment(code));
-      } else {
-        codeEl.textContent = code;
-      }
-      pre.appendChild(codeEl);
-      section.appendChild(pre);
-    }
-
-    return section;
-  };
-
-  const sectionsConfig = [
-    {
-      key: 'calc-db-fr',
+  const sections = {
+    'calc-db-fr': {
       id: 'db-fr',
       title: 'Principe du calcul',
       paras: [
@@ -60,8 +17,7 @@
       ],
       code: 'L_total = 10 × log₁₀(Σ 10^(Li / 10))'
     },
-    {
-      key: 'calc-db-en',
+    'calc-db-en': {
       id: 'db-en',
       title: 'Calculation principle',
       paras: [
@@ -71,8 +27,7 @@
       ],
       code: 'L_total = 10 × log₁₀(Σ 10^(Li / 10))'
     },
-    {
-      key: 'calc-dist-fr',
+    'calc-dist-fr': {
       id: 'dist-fr',
       title: 'Principe du calcul',
       paras: [
@@ -82,8 +37,7 @@
       ],
       code: 'L2 = L1 - 20 × log₁₀(d2 / d1)'
     },
-    {
-      key: 'calc-dist-en',
+    'calc-dist-en': {
       id: 'dist-en',
       title: 'Calculation principle',
       paras: [
@@ -93,8 +47,7 @@
       ],
       code: 'L2 = L1 - 20 × log₁₀(d2 / d1)'
     },
-    {
-      key: 'calc-tiers-fr',
+    'calc-tiers-fr': {
       id: 'tiers-fr',
       title: 'Principe du calcul',
       paras: [
@@ -104,8 +57,7 @@
       ],
       code: ['[f', { type: 'sub', text: 'c' }, ' / √2 ; f', { type: 'sub', text: 'c' }, ' × √2]']
     },
-    {
-      key: 'calc-tiers-en',
+    'calc-tiers-en': {
       id: 'tiers-en',
       title: 'Calculation principle',
       paras: [
@@ -115,23 +67,72 @@
       ],
       code: ['[f', { type: 'sub', text: 'c' }, ' / √2 ; f', { type: 'sub', text: 'c' }, ' × √2]']
     }
-  ];
-
-  const sections = Object.fromEntries(sectionsConfig.map(cfg => [cfg.key, buildSection(cfg)]));
-
-  const inject = () => {
-    document.querySelectorAll('[data-theory]').forEach(el => {
-      const key = el.getAttribute('data-theory');
-      const section = sections[key];
-      if (section) {
-        el.replaceWith(section.cloneNode(true));
-      }
-    });
   };
 
-  if (document.readyState !== 'loading') {
-    inject();
+  function inline(parts) {
+    return parts
+      .map(part => (typeof part === 'string' ? part : `<sub>${part.text}</sub>`))
+      .join('');
+  }
+
+  function buildSection({ id, title, paras, code }) {
+    const section = tpl.content.firstElementChild.cloneNode(true);
+    const h2 = section.querySelector('h2');
+    h2.id = `theory-${id}`;
+    h2.textContent = title;
+
+    section.insertAdjacentHTML(
+      'beforeend',
+      paras
+        .map(p => `<p>${Array.isArray(p) ? inline(p) : p}</p>`)
+        .join('')
+    );
+
+    if (code) {
+      const inner = Array.isArray(code) ? inline(code) : code;
+      section.insertAdjacentHTML(
+        'beforeend',
+        `<pre><code>${inner}</code></pre>`
+      );
+    }
+
+    return section;
+  }
+
+  function render(key) {
+    const cfg = sections[key];
+    return cfg ? buildSection(cfg) : null;
+  }
+
+  function injectConfig() {
+    const { theory, theoryTarget = '#result' } = window.headerConfig || {};
+    if (!theory) return;
+    const target = document.querySelector(theoryTarget);
+    const section = render(theory);
+    if (target && section) {
+      const anchor = target.closest('.card') || target;
+      anchor.insertAdjacentElement('afterend', section);
+    }
+  }
+
+  function injectPlaceholders() {
+    document.querySelectorAll('[data-theory]').forEach(el => {
+      const section = render(el.dataset.theory);
+      if (section) {
+        el.replaceWith(section);
+      }
+    });
+  }
+
+  function init() {
+    injectConfig();
+    injectPlaceholders();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
   } else {
-    document.addEventListener('DOMContentLoaded', inject);
+    init();
   }
 })();
+

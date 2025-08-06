@@ -1,14 +1,11 @@
 (function(){
-  const currentScript = document.currentScript;
-  const basePath = currentScript ? currentScript.src.replace(/[^/]+$/, '') : '';
-  if (basePath) {
-    const theorySrc = `${basePath}theory-sections.js`;
-    if (!document.querySelector(`script[src="${theorySrc}"]`)) {
-      document.head.appendChild(Object.assign(
-        document.createElement('script'),
-        { src: theorySrc, defer: true }
-      ));
-    }
+  const scriptEl = document.currentScript || document.querySelector('script[src*="header.js"]');
+  const theorySrc = scriptEl ? new URL('theory-sections.js', scriptEl.src).href : null;
+  if (theorySrc && !document.querySelector(`script[src="${theorySrc}"]`)) {
+    const s = document.createElement('script');
+    s.src = theorySrc;
+    s.defer = true;
+    document.head.appendChild(s);
   }
   const cfg = window.headerConfig || {};
   document.addEventListener('DOMContentLoaded', () => {
