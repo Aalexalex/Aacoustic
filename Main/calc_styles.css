@@ -165,7 +165,7 @@ tr.thirds-row td {
 .resultsTable-td {
   border: 2px solid #ccc;
 }
-.theory-section {
+.calc-tool__theory {
   background-color: #f9f9f9;
   border-left: 4px solid #4A90E2;
   padding: 20px;
@@ -176,16 +176,20 @@ tr.thirds-row td {
   line-height: 1.6;
 }
 
-.theory-section h3 {
+.calc-tool__theory h2 {
   margin-top: 0;
   font-size: 1.2rem;
   color: #1A237E;
 }
 
-.theory-section pre {
+.calc-tool__theory pre {
   background-color: #eee;
   padding: 10px;
   border-radius: 6px;
   font-family: monospace;
   overflow-x: auto;
+}
+
+.calc-tool__theory code {
+  font-family: inherit;
 }

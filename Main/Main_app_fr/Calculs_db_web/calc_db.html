@@ -25,6 +25,7 @@
 </script>
 <script src="../../header.js" defer></script>
 <script src="script.js" defer></script>
+<script src="../../theory-sections.js" defer></script>
 </head>
 <body>
 <main class="container">
@@ -54,15 +55,7 @@
     <div id="result">Résultat : </div>
     <div id="history">Historique : <br>--------<br></div>
   </div>
-  <div class="theory-section">
-    <h3>Principe du calcul</h3>
-    <p>Les décibels étant une échelle logarithmique, on ne peut pas additionner les niveaux comme des nombres classiques.</p>
-
-    <p>On convertit chaque niveau en puissance relative, on les additionne, puis on reconvertit le total en dB :</p>
-    <pre>L_total = 10 × log₁₀(Σ 10^(Li / 10))</pre>
-
-    <p>Remarque : si un niveau est très inférieur aux autres, son influence est quasi nulle.</p>
-  </div>
+  <div data-theory="calc-db-fr"></div>
 </main>
 </body>
 </html>

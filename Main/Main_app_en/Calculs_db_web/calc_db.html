@@ -25,6 +25,7 @@
 </script>
 <script src="../../header.js" defer></script>
 <script src="script.js" defer></script>
+<script src="../../theory-sections.js" defer></script>
 </head>
 <body>
 <main class="container">
@@ -54,15 +55,7 @@
     <div id="result">Result: </div>
     <div id="history">History: <br>--------<br></div>
   </div>
-  <div class="theory-section">
-    <h3>Calculation principle</h3>
-    <p>Because decibels are a logarithmic scale, levels cannot be added like ordinary numbers.</p>
-
-    <p>Each level is converted to relative power, summed, then converted back to dB:</p>
-    <pre>L_total = 10 × log₁₀(Σ 10^(Li / 10))</pre>
-
-    <p>Note: if a level is much lower than the others, its influence is negligible.</p>
-  </div>
+  <div data-theory="calc-db-en"></div>
 </main>
 </body>
 </html>
