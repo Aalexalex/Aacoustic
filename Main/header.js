@@ -1,4 +1,15 @@
 (function(){
+  const currentScript = document.currentScript;
+  const basePath = currentScript ? currentScript.src.replace(/[^/]+$/, '') : '';
+  if (basePath) {
+    const theorySrc = `${basePath}theory-sections.js`;
+    if (!document.querySelector(`script[src="${theorySrc}"]`)) {
+      document.head.appendChild(Object.assign(
+        document.createElement('script'),
+        { src: theorySrc, defer: true }
+      ));
+    }
+  }
   const cfg = window.headerConfig || {};
   document.addEventListener('DOMContentLoaded', () => {
     const gtagUrl = 'https://www.googletagmanager.com/gtag/js?id=G-YET08GB3VB';
