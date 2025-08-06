@@ -1,4 +1,12 @@
 (function(){
+  const scriptEl = document.currentScript || document.querySelector('script[src*="header.js"]');
+  const theorySrc = scriptEl ? new URL('theory-sections.js', scriptEl.src).href : null;
+  if (theorySrc && !document.querySelector(`script[src="${theorySrc}"]`)) {
+    const s = document.createElement('script');
+    s.src = theorySrc;
+    s.defer = true;
+    document.head.appendChild(s);
+  }
   const cfg = window.headerConfig || {};
   document.addEventListener('DOMContentLoaded', () => {
     const gtagUrl = 'https://www.googletagmanager.com/gtag/js?id=G-YET08GB3VB';
